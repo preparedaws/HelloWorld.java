@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning GitHub Repository from main branch...'
+                git branch: 'main', url: 'https://github.com/preparedaws/HelloWorld.java.git'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                echo 'Compiling Java program...'
+                // Ensure the working directory is correct
+                sh 'ls -la'
+                sh 'javac Hello.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                echo 'Running Java program...'
+                // Run the program after compilation
+                sh 'java Hello'
+            }
+        }
+    }
+}
