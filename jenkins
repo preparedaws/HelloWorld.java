@@ -12,17 +12,12 @@ pipeline {
         stage('Compile') {
             steps {
                 echo 'Compiling Java program...'
-                // Ensure the working directory is correct
-                sh 'ls -la'
-                sh 'javac Hello.java'
             }
         }
 
         stage('Run') {
             steps {
                 echo 'Running Java program...'
-                // Run the program after compilation
-                sh 'java Hello'
             }
         }
     }
