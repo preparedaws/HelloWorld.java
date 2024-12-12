@@ -2,10 +2,9 @@ pipeline {
     agent any
     
     stages {
-        stage('Clone Repository') {
+        stage('build') {
             steps {
-                echo 'Cloning GitHub Repository from main branch...'
-                git branch: 'main', url: 'https://github.com/preparedaws/HelloWorld.java.git'
+                echo 'build Java program...'
             }
         }
 
